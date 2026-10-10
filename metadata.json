@@ -1,0 +1,6 @@
+{
+  "name": "ArchImpact - Codebase Architecture & System Impact Analyst",
+  "description": "Enterprise RAG-powered codebase & architecture impact analyst. Indexes documentation, API specs, and schemas to map dependencies, evaluate blast radiuses, and generate grounded impact reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
