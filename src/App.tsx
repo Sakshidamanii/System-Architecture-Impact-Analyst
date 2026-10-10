@@ -11,6 +11,7 @@ import { ImpactReportView } from './components/ImpactReportView';
 import { RagInspectorModal } from './components/RagInspectorModal';
 import { KnowledgeBaseDrawer } from './components/KnowledgeBaseDrawer';
 import { CitationDrawer } from './components/CitationDrawer';
+import { ReadmeModal } from './components/ReadmeModal';
 import {
   ArchitectureSystem,
   SystemSummary,
@@ -43,6 +44,7 @@ export default function App() {
   // Modals & Drawers
   const [isRagInspectorOpen, setIsRagInspectorOpen] = useState<boolean>(false);
   const [isKnowledgeBaseOpen, setIsKnowledgeBaseOpen] = useState<boolean>(false);
+  const [isReadmeOpen, setIsReadmeOpen] = useState<boolean>(false);
   const [activeCitation, setActiveCitation] = useState<Citation | null>(null);
 
   // Fetch initial systems and RAG status
@@ -149,6 +151,7 @@ export default function App() {
         ragStatus={ragStatus}
         onOpenRagInspector={() => setIsRagInspectorOpen(true)}
         onOpenKnowledgeBase={() => setIsKnowledgeBaseOpen(true)}
+        onOpenReadme={() => setIsReadmeOpen(true)}
         activeRepoName={activeSystem?.repoName || 'acme-corp/ecosystem'}
       />
 
@@ -218,6 +221,11 @@ export default function App() {
       <CitationDrawer
         citation={activeCitation}
         onClose={() => setActiveCitation(null)}
+      />
+
+      <ReadmeModal
+        isOpen={isReadmeOpen}
+        onClose={() => setIsReadmeOpen(false)}
       />
     </div>
   );

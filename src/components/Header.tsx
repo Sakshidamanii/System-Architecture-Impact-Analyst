@@ -9,7 +9,8 @@ import {
   FileCode, 
   CheckCircle2, 
   Search,
-  ExternalLink
+  ExternalLink,
+  Code2
 } from 'lucide-react';
 import { SystemSummary, RagStatus } from '../types';
 
@@ -20,6 +21,7 @@ interface HeaderProps {
   ragStatus: RagStatus | null;
   onOpenRagInspector: () => void;
   onOpenKnowledgeBase: () => void;
+  onOpenReadme: () => void;
   activeRepoName: string;
 }
 
@@ -30,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
   ragStatus,
   onOpenRagInspector,
   onOpenKnowledgeBase,
+  onOpenReadme,
   activeRepoName,
 }) => {
   return (
@@ -98,10 +101,19 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Knowledge Base Drawer Button */}
           <button
             onClick={onOpenKnowledgeBase}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-950/40 hover:bg-indigo-900/60 border border-indigo-800/50 hover:border-indigo-700 transition-all text-xs text-indigo-200 font-medium cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 transition-all text-xs text-slate-300 font-medium cursor-pointer"
           >
-            <BookOpen className="h-3.5 w-3.5 text-indigo-400" />
+            <BookOpen className="h-3.5 w-3.5 text-cyan-400" />
             <span>Specs & ADRs</span>
+          </button>
+
+          {/* Docs & README Modal Button */}
+          <button
+            onClick={onOpenReadme}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-950/50 hover:bg-indigo-900/70 border border-indigo-800/60 hover:border-indigo-700 transition-all text-xs text-indigo-200 font-semibold cursor-pointer shadow-sm"
+          >
+            <Code2 className="h-3.5 w-3.5 text-indigo-400" />
+            <span>Docs & README</span>
           </button>
         </div>
       </div>
